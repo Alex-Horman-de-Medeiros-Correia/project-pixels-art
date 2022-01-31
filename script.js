@@ -20,3 +20,32 @@ function selecaoCores(event) {
 }
 
 coresSecao.addEventListener('click', selecaoCores);
+
+function mudarCor(event) {
+  const selecao = document.querySelector('.selected');
+  if (selecao.classList.contains('black')) {
+    event.target.style.backgroundColor = 'black';
+  }
+  if (selecao.classList.contains('red')) {
+    event.target.style.backgroundColor = 'red';
+  }
+  if (selecao.classList.contains('green')) {
+    event.target.style.backgroundColor = 'green';
+  }
+  if (selecao.classList.contains('blue')) {
+    event.target.style.backgroundColor = 'blue';
+  }
+}
+
+quadro.addEventListener('click', mudarCor);
+
+const botao = document.querySelector('#clear-board');
+
+function limparBranco() {
+  const pixelado = quadro.children;
+  for (let index = 0; index < pixelado.length; index += 1) {
+      pixelado[index].style.backgroundColor = 'white';
+  }
+}
+
+botao.addEventListener('click', limparBranco);
