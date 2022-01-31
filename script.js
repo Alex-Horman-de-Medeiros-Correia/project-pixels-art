@@ -1,4 +1,5 @@
 const quadro = document.querySelector('#pixel-board');
+const input = document.querySelector('#board-size');
 
 const horizontal = 5;
 const vertical = 5;
@@ -49,3 +50,34 @@ function limparBranco() {
 }
 
 botao.addEventListener('click', limparBranco);
+
+
+const botaoGerado = document.querySelector('#generate-board');
+
+function remove() {
+    while (quadro.firstChild) {
+        quadro.firstChild.remove();
+    }
+}
+function tamanhoQuadro() {
+    if (!input.value) {
+        alert('Board inválido!');
+    }
+    else {
+        remove();
+        const inputUm = parseInt(input.value);
+        const inputDois = parseInt(input.value);
+        for (let i = 0; i < inputUm; i += 1) {
+            for (let index = 0; index < inputDois; index += 1) {
+                const box = document.createElement('div');
+                box.classList.add('pixel');
+                quadro.appendChild(box);
+            }
+            const sequinte = document.createElement('br');
+            quadro.appendChild(sequinte);
+        }
+    }
+}
+
+
+botaoGerado.addEventListener('click', tamanhoQuadro);
