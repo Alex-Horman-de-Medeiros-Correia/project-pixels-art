@@ -1,0 +1,56 @@
+#title {
+    text-align: center;
+}
+
+#color-palette {
+    display: flex;
+    justify-content: center;
+    flex-flow: nowrap;
+    margin: 10px;
+}
+
+.black {
+    padding: 40px;
+    border-radius: 100%;
+    background-color: black;
+    border: black solid 1px;
+    margin: 10px;
+}
+
+.red {
+    padding: 40px;
+    border-radius: 100%;
+    background-color: red;
+    border: black solid 1px;
+    margin: 10px;
+}
+
+.green {
+    padding: 40px;
+    border-radius: 100%;
+    background-color: green;
+    border: black solid 1px;
+    margin: 10px;
+}
+
+.blue {
+    padding: 40px;
+    border-radius: 100%;
+    background-color: blue;
+    border: black solid 1px;
+    margin: 10px;
+}
+
+.pixel {
+    border: black solid 1px;
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+    display: inline-block;
+    background-color: white;
+}
+
+#pixel-board {
+    max-width: 350px;
+    margin-left: 515px;
+}
