@@ -45,39 +45,48 @@ const botao = document.querySelector('#clear-board');
 function limparBranco() {
   const pixelado = quadro.children;
   for (let index = 0; index < pixelado.length; index += 1) {
-      pixelado[index].style.backgroundColor = 'white';
+    pixelado[index].style.backgroundColor = 'white';
   }
 }
 
 botao.addEventListener('click', limparBranco);
 
-
 const botaoGerado = document.querySelector('#generate-board');
 
 function remove() {
-    while (quadro.firstChild) {
-        quadro.firstChild.remove();
-    }
-}
-function tamanhoQuadro() {
-    if (!input.value) {
-        alert('Board inválido!');
-    }
-    else {
-        remove();
-        const inputUm = parseInt(input.value);
-        const inputDois = parseInt(input.value);
-        for (let i = 0; i < inputUm; i += 1) {
-            for (let index = 0; index < inputDois; index += 1) {
-                const box = document.createElement('div');
-                box.classList.add('pixel');
-                quadro.appendChild(box);
-            }
-            const sequinte = document.createElement('br');
-            quadro.appendChild(sequinte);
-        }
-    }
+  while (quadro.firstChild) {
+    quadro.firstChild.remove();
+  }
 }
 
+function colocaQuadro(inputx) {
+  for (let index = 0; index < inputx; index += 1) {
+    for (let i = 0; i < inputx; i += 1) {
+      const box = document.createElement('div');
+      box.classList.add('pixel');
+      quadro.appendChild(box);
+    }
+    const sequinte = document.createElement('br');
+    quadro.appendChild(sequinte);
+  }
+}
+
+function tamanhoQuadro() {
+  if (!input.value) {
+    alert('Board inválido!');
+  } else {
+    remove();
+    let inputx = parseInt(input.value);
+    if (inputx < 5) {
+      inputx = 5;
+      colocaQuadro(inputx);
+    } else if (inputx > 50) {
+      inputx = 50;
+      colocaQuadro(inputx);
+    } else {
+      colocaQuadro(inputx);
+    }
+  }
+}
 
 botaoGerado.addEventListener('click', tamanhoQuadro);
